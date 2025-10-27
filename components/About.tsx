@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, Container, Typography, Grid } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { EmojiEvents, FlashOn, People, Handshake } from '@mui/icons-material';
 import { colors } from '../theme';
 
@@ -92,7 +93,7 @@ const About: React.FC = () => {
     <Section id="about">
       <Container maxWidth="lg">
         <Grid container spacing={8} alignItems="center">
-          <Grid item xs={12} lg={6}>
+          <Grid size={{ xs: 12, lg: 6 }}>
             <Badge variant="overline">ABOUT US</Badge>
             <SectionTitle variant="h2">
               The Minds Behind Your Next Breakthrough
@@ -105,7 +106,7 @@ const About: React.FC = () => {
               To empower every enterprise to achieve its full potential through the strategic application of technology, intelligence, and relentless innovation.
             </Description>
           </Grid>
-          <Grid item xs={12} lg={6}>
+          <Grid size={{ xs: 12, lg: 6 }}>
             <Box display="flex" flexDirection="column" gap={4}>
               <ValueCard icon={<EmojiEvents sx={{ fontSize: 24 }} />} title="Integrity & Excellence">
                 We uphold the highest standards of integrity and are committed to delivering excellence in everything we do.

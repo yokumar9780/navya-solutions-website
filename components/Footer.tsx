@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, Container, Typography, Link, Grid } from '@mui/material';
+import { Box, Container, Typography, Link } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { colors } from '../theme';
 
 const FooterWrapper = styled(Box)`
@@ -54,24 +55,24 @@ const CopyrightBox = styled(Box)`
 
 const Footer: React.FC = () => {
   return (
-    <FooterWrapper component="footer">
+    <FooterWrapper as="footer">
       <Container maxWidth="lg">
         <Grid container spacing={4} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <FooterTitle>Navya Solutions AB</FooterTitle>
             <FooterText>
               Your success is our mission. Empowering enterprises through technology, intelligence, and innovation.
             </FooterText>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <FooterSubtitle>Contact Us</FooterSubtitle>
             <Box component="ul" sx={{ listStyle: 'none', padding: 0, margin: 0 }}>
               <li>
-                <FooterText component="span">Email: </FooterText>
+                <FooterText as="span">Email: </FooterText>
                 <FooterLink href="mailto:info@navyaSolutions.se">info@navyaSolutions.se</FooterLink>
               </li>
               <li>
-                <FooterText component="span">Phone: </FooterText>
+                <FooterText as="span">Phone: </FooterText>
                 <FooterLink href="tel:+XX-XXXXXXX">+XX-XXXXXXX</FooterLink>
               </li>
               <li>
@@ -79,7 +80,7 @@ const Footer: React.FC = () => {
               </li>
             </Box>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <FooterSubtitle>Follow Us</FooterSubtitle>
             <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-start' }, gap: 2 }}>
               <FooterLink href="#">LinkedIn</FooterLink>

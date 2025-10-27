@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, Container, Typography, Grid, Card, CardContent } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { 
   BusinessCenter, FlashOn, CheckCircle, Search, 
   Cloud, Security, Storage, Group 
@@ -97,49 +98,49 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, children }) => (
 
 const Consulting: React.FC = () => {
   return (
-    <Section id="consulting" component="section">
+    <Section id="consulting">
       <Container maxWidth="lg">
         <SectionTitle variant="h2">Strategic Consulting Services</SectionTitle>
         <SectionDescription variant="h6">
           Strategic guidance to transform your business challenges into growth opportunities.
         </SectionDescription>
         <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <ServiceCard icon={<BusinessCenter sx={{ fontSize: 32 }} />} title="IT Strategy & Transformation">
               We craft robust IT roadmaps that align with your objectives, ensuring technology acts as a catalyst for growth, efficiency, and a competitive edge.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <ServiceCard icon={<FlashOn sx={{ fontSize: 32 }} />} title="Business Process Reengineering">
               We analyze and redesign your core workflows for the digital era, eliminating bottlenecks and unlocking new levels of operational agility.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <ServiceCard icon={<Search sx={{ fontSize: 32 }} />} title="Product Evaluation & Implementation">
               Navigate the complex tech landscape with our unbiased, expert guidance to select and implement the right products to maximize your ROI.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <ServiceCard icon={<CheckCircle sx={{ fontSize: 32 }} />} title="Quality Consulting">
               Embed excellence from day one. Our comprehensive quality assurance frameworks ensure robust, reliable, and market-leading solutions.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <ServiceCard icon={<Cloud sx={{ fontSize: 32 }} />} title="Cloud Advisory Services">
               Harness the full potential of the cloud. We provide readiness assessments, multi-cloud strategy, migration planning, and cost optimization to ensure maximum agility and ROI.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <ServiceCard icon={<Security sx={{ fontSize: 32 }} />} title="Cybersecurity & Risk Advisory">
               Protect your digital assets and build customer trust. We conduct comprehensive risk assessments and develop robust security postures to build a resilient enterprise.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <ServiceCard icon={<Storage sx={{ fontSize: 32 }} />} title="Data Strategy & Analytics">
               Transform data into your most powerful strategic advantage. We develop governance frameworks and unlock predictive insights for smarter, faster decision-making.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <ServiceCard icon={<Group sx={{ fontSize: 32 }} />} title="Change Management & Digital Adoption">
               Technology is only transformative when people embrace it. We partner with you to ensure your teams are equipped, engaged, and empowered for lasting success.
             </ServiceCard>

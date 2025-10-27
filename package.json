@@ -1,5 +1,5 @@
 {
-  "name": "navya-solutions-ab-|-it-consulting-&-ai-innovation",
+  "name": "navya-solutions-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,20 +11,20 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^6.5.0",
+    "@mui/material": "^6.5.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "@mui/material": "^7.3.4",
-    "@mui/icons-material": "^7.3.4",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
     "styled-components": "^6.1.16"
   },
   "devDependencies": {
     "@types/node": "^24.9.1",
     "@types/styled-components": "^5.1.34",
     "@vitejs/plugin-react": "^5.0.1",
+    "gh-pages": "^6.3.0",
     "typescript": "^5.9.3",
-    "vite": "^7.1.12",
-    "gh-pages": "^6.3.0"
+    "vite": "^7.1.12"
   }
 }

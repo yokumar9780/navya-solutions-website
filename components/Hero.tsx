@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <HeroSection id="home" component="section">
+    <HeroSection id="home">
       <Container maxWidth="lg">
         <HeroTitle variant="h1">
           Driving Business Transformation

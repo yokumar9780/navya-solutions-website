@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, Container, Typography, Grid, Card, CardContent } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { 
   Psychology, DirectionsCar, AccountBalance, People, 
   Search, SmartToy, Rocket, Repeat, TrendingUp,
@@ -226,21 +227,21 @@ const AIInnovation: React.FC = () => {
         </SectionDescription>
 
         <Grid container spacing={4} sx={{ mb: 10 }}>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <AICardComponent 
               icon={<DirectionsCar sx={{ fontSize: 24 }} />} 
               title="AI in Automotive" 
               description="Drive the future with AI-powered predictive maintenance, intelligent fleet optimization, and advanced autonomous insights." 
             />
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <AICardComponent 
               icon={<AccountBalance sx={{ fontSize: 24 }} />} 
               title="AI in Finance" 
               description="Fortify financial operations with real-time fraud detection, AI-powered advisory agents, and automated regulatory compliance." 
             />
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <AICardComponent 
               icon={<People sx={{ fontSize: 24 }} />} 
               title="AI in CRM & CX" 
@@ -254,28 +255,28 @@ const AIInnovation: React.FC = () => {
           Leveraging cutting-edge technologies to build intelligent solutions.
         </SubDescription>
         <Grid container spacing={4} sx={{ mb: 12 }}>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <CapabilityCardComponent 
               icon={<BarChart sx={{ fontSize: 28 }} />} 
               title="Predictive Analytics & ML" 
               description="Harness data to forecast trends, identify opportunities, and make proactive, data-driven decisions." 
             />
           </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <CapabilityCardComponent 
               icon={<RecordVoiceOver sx={{ fontSize: 28 }} />} 
               title="Natural Language Processing" 
               description="Build solutions that understand, interpret, and respond to human language for superior automation and CX." 
             />
           </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <CapabilityCardComponent 
               icon={<RemoveRedEye sx={{ fontSize: 28 }} />} 
               title="Computer Vision" 
               description="Enable systems to 'see' and interpret the visual world, unlocking insights from images and video streams." 
             />
           </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <CapabilityCardComponent 
               icon={<AutoAwesome sx={{ fontSize: 28 }} />} 
               title="Generative AI Solutions" 
@@ -290,35 +291,35 @@ const AIInnovation: React.FC = () => {
         </SubDescription>
 
         <Grid container spacing={5}>
-            <Grid item xs={12} sm={6} lg={2.4}>
+            <Grid size={{ xs: 12, sm: 6, lg: 2.4 }}>
               <AIProcessStep 
                 icon={<Search sx={{ fontSize: 36 }} />} 
                 title="1. Discover" 
                 description="Identify high-impact AI opportunities aligned with your core business goals." 
               />
             </Grid>
-            <Grid item xs={12} sm={6} lg={2.4}>
+            <Grid size={{ xs: 12, sm: 6, lg: 2.4 }}>
               <AIProcessStep 
                 icon={<SmartToy sx={{ fontSize: 36 }} />} 
                 title="2. Design" 
                 description="Develop and train domain-specific models and agents for maximum relevance." 
               />
             </Grid>
-            <Grid item xs={12} sm={6} lg={2.4}>
+            <Grid size={{ xs: 12, sm: 6, lg: 2.4 }}>
               <AIProcessStep 
                 icon={<Rocket sx={{ fontSize: 36 }} />} 
                 title="3. Deploy" 
                 description="Seamlessly integrate AI solutions into your existing IT ecosystem for immediate value." 
               />
             </Grid>
-            <Grid item xs={12} sm={6} lg={2.4}>
+            <Grid size={{ xs: 12, sm: 6, lg: 2.4 }}>
               <AIProcessStep 
                 icon={<Repeat sx={{ fontSize: 36 }} />} 
                 title="4. Learn" 
                 description="Continuously improve and refine models using real-world performance data." 
               />
             </Grid>
-            <Grid item xs={12} sm={6} lg={2.4}>
+            <Grid size={{ xs: 12, sm: 6, lg: 2.4 }}>
               <AIProcessStep 
                 icon={<TrendingUp sx={{ fontSize: 36 }} />} 
                 title="5. Scale" 

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, Container, Typography, Grid, Card, CardContent } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { Storage, Lock, Window, Headset, MergeType, People } from '@mui/icons-material';
 import { colors } from '../theme';
 
@@ -94,39 +95,39 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, children }) => (
 
 const Outsourcing: React.FC = () => {
   return (
-    <Section id="outsourcing" component="section">
+    <Section id="outsourcing">
       <Container maxWidth="lg">
         <SectionTitle variant="h2">Reliable Outsourcing & Managed Services</SectionTitle>
         <SectionDescription variant="h6">
           Free your team to focus on innovation. Our services act as a seamless extension of your organization to drive business forward.
         </SectionDescription>
         <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} lg={4}>
+          <Grid size={{ xs: 12, sm: 6, lg: 4 }}>
             <ServiceCard icon={<Storage sx={{ fontSize: 32 }} />} title="Managed Cloud Services">
               Go beyond migration. We provide 24/7 management of your cloud infrastructure, handling security, performance, and cost optimization so you can innovate, not operate.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={4}>
+          <Grid size={{ xs: 12, sm: 6, lg: 4 }}>
             <ServiceCard icon={<Lock sx={{ fontSize: 32 }} />} title="Managed Security Services">
               Elevate your security with our proactive services. We offer 24/7 threat monitoring, vulnerability management, and incident response from our Security Operations Center.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={4}>
+          <Grid size={{ xs: 12, sm: 6, lg: 4 }}>
             <ServiceCard icon={<Window sx={{ fontSize: 32 }} />} title="Application Management & Support">
               Ensure your critical applications are always performing at their peak. We provide end-to-end management, from monitoring and maintenance to user support.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={4}>
+          <Grid size={{ xs: 12, sm: 6, lg: 4 }}>
             <ServiceCard icon={<Headset sx={{ fontSize: 32 }} />} title="24/7 IT Service Desk">
               Ensure business continuity with our proactive, round-the-clock support. We provide continuous monitoring and rapid issue resolution for your employees and customers.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={4}>
+          <Grid size={{ xs: 12, sm: 6, lg: 4 }}>
             <ServiceCard icon={<MergeType sx={{ fontSize: 32 }} />} title="Managed DevOps & CI/CD">
               We manage and optimize your entire software delivery pipeline, ensuring your development teams can ship features faster and more reliably.
             </ServiceCard>
           </Grid>
-          <Grid item xs={12} sm={6} lg={4}>
+          <Grid size={{ xs: 12, sm: 6, lg: 4 }}>
             <ServiceCard icon={<People sx={{ fontSize: 32 }} />} title="Dedicated Development Teams">
               Seamlessly extend your in-house capabilities with our dedicated teams of elite engineers, project managers, and QA specialists to accelerate your projects.
             </ServiceCard>

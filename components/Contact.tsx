@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Box, Container, Typography, TextField, Button, Grid, Link } from '@mui/material';
+import { Box, Container, Typography, TextField, Button, Link } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { LocationOn, Email, Phone } from '@mui/icons-material';
 import { colors } from '../theme';
 
@@ -112,7 +113,7 @@ const Contact: React.FC = () => {
         </SectionDescription>
 
         <Grid container spacing={6}>
-          <Grid item xs={12} lg={6}>
+          <Grid size={{ xs: 12, lg: 6 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               <ContactInfo>
                 <IconWrapper>
@@ -152,7 +153,7 @@ const Contact: React.FC = () => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} lg={6}>
+          <Grid size={{ xs: 12, lg: 6 }}>
             <FormWrapper>
               <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                 <TextField

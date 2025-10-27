@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Box, Container, Typography, Grid, Card, CardContent, CardMedia, Chip, Button } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent, CardMedia, Chip, Button } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { 
   CalendarToday, AccessTime, ArrowForward
 } from '@mui/icons-material';
@@ -204,7 +205,7 @@ const BlogListPage: React.FC = () => {
 
         <Grid container spacing={4}>
           {filteredPosts.map((post) => (
-            <Grid item xs={12} md={6} lg={4} key={post.id}>
+            <Grid size={{ xs: 12, md: 6, lg: 4 }} key={post.id}>
               <BlogCard onClick={() => handlePostClick(post.id)}>
                 <BlogImage
                   sx={{
