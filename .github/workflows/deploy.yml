@@ -1,9 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-    # Trigger on push to main branch
+    # Trigger on push to master branch
     push:
         branches:
+            - master
             - main
 
     # Allow manual trigger from Actions tab
