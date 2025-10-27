@@ -4,6 +4,7 @@ import { Box, Container, Typography, TextField, Button, Link, Alert, CircularPro
 import Grid from '@mui/material/Grid2';
 import { LocationOn, Email, Phone } from '@mui/icons-material';
 import { colors } from '../theme';
+import { companyInfo } from '../constants';
 import emailjs from '@emailjs/browser';
 
 const Section = styled(Box)`
@@ -165,47 +166,8 @@ const Contact: React.FC = () => {
         </SectionDescription>
 
         <Grid container spacing={6}>
-          <Grid size={{ xs: 12, lg: 6 }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <ContactInfo>
-                <IconWrapper>
-                  <LocationOn sx={{ fontSize: 24 }} />
-                </IconWrapper>
-                <Box sx={{ ml: 2 }}>
-                  <InfoTitle variant="h6">Address</InfoTitle>
-                  <InfoText variant="body2">
-                    Placeholder Address<br />City, Country
-                  </InfoText>
-                </Box>
-              </ContactInfo>
-
-              <ContactInfo>
-                <IconWrapper>
-                  <Email sx={{ fontSize: 24 }} />
-                </IconWrapper>
-                <Box sx={{ ml: 2 }}>
-                  <InfoTitle variant="h6">Email</InfoTitle>
-                  <InfoLink href="mailto:info@navyaSolutions.se">
-                    info@navyaSolutions.se
-                  </InfoLink>
-                </Box>
-              </ContactInfo>
-
-              <ContactInfo>
-                <IconWrapper>
-                  <Phone sx={{ fontSize: 24 }} />
-                </IconWrapper>
-                <Box sx={{ ml: 2 }}>
-                  <InfoTitle variant="h6">Phone</InfoTitle>
-                  <InfoLink href="tel:+XX-XXXXXXX">
-                    +XX-XXXXXXX
-                  </InfoLink>
-                </Box>
-              </ContactInfo>
-            </Box>
-          </Grid>
-
-          <Grid size={{ xs: 12, lg: 6 }}>
+          {/* Contact Form */}
+          <Grid size={{ xs: 12, lg: 7 }}>
             <FormWrapper>
               {status.type && (
                 <Alert severity={status.type} sx={{ mb: 3 }}>
@@ -285,6 +247,73 @@ const Contact: React.FC = () => {
                 </Button>
               </Box>
             </FormWrapper>
+          </Grid>
+
+          {/* Contact Information and Map */}
+          <Grid size={{ xs: 12, lg: 5 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, height: '100%' }}>
+              {/* Contact Details */}
+              <Box>
+                <ContactInfo>
+                  <IconWrapper>
+                    <LocationOn sx={{ fontSize: 24 }} />
+                  </IconWrapper>
+                  <Box sx={{ ml: 2 }}>
+                    <InfoTitle variant="h6">Address</InfoTitle>
+                    <InfoText variant="body2">
+                      {companyInfo.address.street}<br />{companyInfo.address.postalCode} {companyInfo.address.city}
+                    </InfoText>
+                  </Box>
+                </ContactInfo>
+
+                <ContactInfo>
+                  <IconWrapper>
+                    <Email sx={{ fontSize: 24 }} />
+                  </IconWrapper>
+                  <Box sx={{ ml: 2 }}>
+                    <InfoTitle variant="h6">Email</InfoTitle>
+                    <InfoLink href={`mailto:${companyInfo.email}`}>
+                      {companyInfo.email}
+                    </InfoLink>
+                  </Box>
+                </ContactInfo>
+
+                <ContactInfo sx={{ mb: 0 }}>
+                  <IconWrapper>
+                    <Phone sx={{ fontSize: 24 }} />
+                  </IconWrapper>
+                  <Box sx={{ ml: 2 }}>
+                    <InfoTitle variant="h6">Phone</InfoTitle>
+                    <InfoLink href={`tel:${companyInfo.phone.replace(/\s/g, '')}`}>
+                      {companyInfo.phone}
+                    </InfoLink>
+                  </Box>
+                </ContactInfo>
+              </Box>
+
+              {/* Google Maps Embed */}
+              <Box 
+                sx={{ 
+                  width: '100%', 
+                  height: 350,
+                  borderRadius: 2, 
+                  overflow: 'hidden',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  flex: 1
+                }}
+              >
+                <iframe
+                  title="Navya Solutions Location"
+                  src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d532.2210739169459!2d${companyInfo.location.lng}!3d${companyInfo.location.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff3c3e8d4e8a1%3A0x9e4c5d4f3e8b3c1a!2s${encodeURIComponent(companyInfo.address.full)}!5e0!3m2!1sen!2s!4v1635339600000!5m2!1sen!2s&markers=size:mid%7Ccolor:red%7Clabel:N%7C${companyInfo.location.lat},${companyInfo.location.lng}`}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </Box>
+            </Box>
           </Grid>
         </Grid>
       </Container>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Box, Container, Typography, Link } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { colors } from '../theme';
+import { companyInfo } from '../constants';
 
 const FooterWrapper = styled(Box)`
   background-color: ${colors.primary};
@@ -59,7 +60,7 @@ const Footer: React.FC = () => {
       <Container maxWidth="lg">
         <Grid container spacing={4} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
           <Grid size={{ xs: 12, md: 4 }}>
-            <FooterTitle>Navya Solutions AB</FooterTitle>
+            <FooterTitle>{companyInfo.name}</FooterTitle>
             <FooterText>
               Your success is our mission. Empowering enterprises through technology, intelligence, and innovation.
             </FooterText>
@@ -68,15 +69,15 @@ const Footer: React.FC = () => {
             <FooterSubtitle>Contact Us</FooterSubtitle>
             <Box component="ul" sx={{ listStyle: 'none', padding: 0, margin: 0 }}>
               <li>
+                <FooterText>Address: {companyInfo.address.full}</FooterText>
+              </li>
+              <li>
                 <FooterText as="span">Email: </FooterText>
-                <FooterLink href="mailto:info@navyaSolutions.se">info@navyaSolutions.se</FooterLink>
+                <FooterLink href={`mailto:${companyInfo.email}`}>{companyInfo.email}</FooterLink>
               </li>
               <li>
                 <FooterText as="span">Phone: </FooterText>
-                <FooterLink href="tel:+XX-XXXXXXX">+XX-XXXXXXX</FooterLink>
-              </li>
-              <li>
-                <FooterText>Address: Placeholder Address, City, Country</FooterText>
+                <FooterLink href={`tel:${companyInfo.phone.replace(/\s/g, '')}`}>{companyInfo.phone}</FooterLink>
               </li>
             </Box>
           </Grid>
@@ -90,7 +91,7 @@ const Footer: React.FC = () => {
         </Grid>
         <CopyrightBox>
           <FooterText sx={{ color: '#9ca3af', fontSize: '0.875rem' }}>
-            &copy; {new Date().getFullYear()} Navya Solutions AB. All rights reserved.
+            &copy; {new Date().getFullYear()} {companyInfo.name}. All rights reserved.
           </FooterText>
         </CopyrightBox>
       </Container>

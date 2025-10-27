@@ -251,7 +251,7 @@ const getBlogContent = (post: BlogPost): string => {
     <h2>Conclusion</h2>
     <p>Success in ${post.category.toLowerCase()} requires a balanced approach that combines strategic vision, technological expertise, and organizational change management. By following proven best practices and learning from industry leaders, organizations can navigate the complexities of digital transformation and achieve sustainable competitive advantage.</p>
     
-    <p>At Navya Solutions AB, we help organizations navigate these challenges with proven methodologies, deep technical expertise, and a commitment to delivering measurable business value. Contact us to learn how we can support your transformation journey.</p>
+    <p>At NavYa Solutions AB, we help organizations navigate these challenges with proven methodologies, deep technical expertise, and a commitment to delivering measurable business value. Contact us to learn how we can support your transformation journey.</p>
   `;
 };
 
