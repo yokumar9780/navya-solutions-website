@@ -1,9 +1,10 @@
 ﻿import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Box, Container, Typography, TextField, Button, Link } from '@mui/material';
+import { Box, Container, Typography, TextField, Button, Link, Alert, CircularProgress } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { LocationOn, Email, Phone } from '@mui/icons-material';
 import { colors } from '../theme';
+import emailjs from '@emailjs/browser';
 
 const Section = styled(Box)`
   padding: 80px 0;
@@ -91,15 +92,66 @@ const Contact: React.FC = () => {
     message: ''
   });
 
+  const [status, setStatus] = useState<{
+    type: 'success' | 'error' | 'info' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(`Thank you for your message, ${formData.name}! We will get back to you shortly.`);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setLoading(true);
+    setStatus({ type: null, message: '' });
+
+    try {
+      // EmailJS configuration from environment variables
+      // Get these from https://www.emailjs.com/
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Check if credentials are configured
+      if (!serviceId || !templateId || !publicKey) {
+        setStatus({
+          type: 'info',
+          message: 'Email service not configured yet. Please set up EmailJS credentials in .env.local file'
+        });
+        setLoading(false);
+        return;
+      }
+
+      // Send email using EmailJS with form element
+      const form = e.target as HTMLFormElement;
+      const result = await emailjs.sendForm(
+        serviceId,
+        templateId,
+        form,
+        publicKey
+      );
+
+      if (result.status === 200) {
+        setStatus({
+          type: 'success',
+          message: `Thank you, ${formData.name}! Your message has been sent successfully. We'll get back to you shortly.`
+        });
+        // Reset form
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }
+    } catch (error) {
+      console.error('Email send error:', error);
+      setStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again or contact us directly at yokum.9780@gmail.com'
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -155,6 +207,11 @@ const Contact: React.FC = () => {
 
           <Grid size={{ xs: 12, lg: 6 }}>
             <FormWrapper>
+              {status.type && (
+                <Alert severity={status.type} sx={{ mb: 3 }}>
+                  {status.message}
+                </Alert>
+              )}
               <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                 <TextField
                   fullWidth
@@ -164,6 +221,7 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   variant="outlined"
+                  disabled={loading}
                 />
                 <TextField
                   fullWidth
@@ -174,6 +232,7 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   variant="outlined"
+                  disabled={loading}
                 />
                 <TextField
                   fullWidth
@@ -183,6 +242,7 @@ const Contact: React.FC = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   variant="outlined"
+                  disabled={loading}
                 />
                 <TextField
                   fullWidth
@@ -194,11 +254,13 @@ const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   variant="outlined"
+                  disabled={loading}
                 />
                 <Button
                   type="submit"
                   variant="contained"
                   fullWidth
+                  disabled={loading}
                   sx={{
                     backgroundColor: colors.secondary,
                     color: '#FFFFFF',
@@ -206,10 +268,20 @@ const Contact: React.FC = () => {
                     fontWeight: 600,
                     '&:hover': {
                       backgroundColor: colors.primary
+                    },
+                    '&:disabled': {
+                      backgroundColor: '#ccc'
                     }
                   }}
                 >
-                  Send Message
+                  {loading ? (
+                    <>
+                      <CircularProgress size={20} sx={{ mr: 1, color: 'white' }} />
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </Button>
               </Box>
             </FormWrapper>

@@ -13,9 +13,18 @@ RUN rm -rf node_modules package-lock.json || true && \
 # Copy source code
 COPY . .
 
-# Build the application with root base path for Docker
+# Build arguments for environment variables
 ARG VITE_BASE_PATH=/
+ARG VITE_EMAILJS_SERVICE_ID
+ARG VITE_EMAILJS_TEMPLATE_ID
+ARG VITE_EMAILJS_PUBLIC_KEY
+
+# Set environment variables for build
 ENV VITE_BASE_PATH=${VITE_BASE_PATH}
+ENV VITE_EMAILJS_SERVICE_ID=${VITE_EMAILJS_SERVICE_ID}
+ENV VITE_EMAILJS_TEMPLATE_ID=${VITE_EMAILJS_TEMPLATE_ID}
+ENV VITE_EMAILJS_PUBLIC_KEY=${VITE_EMAILJS_PUBLIC_KEY}
+
 RUN npm run build
 
 # Production stage
