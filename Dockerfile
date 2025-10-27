@@ -7,12 +7,14 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install --frozen-lockfile || npm install
 
 # Copy source code
 COPY . .
 
-# Build the application
+# Build the application with root base path for Docker
+ARG VITE_BASE_PATH=/
+ENV VITE_BASE_PATH=${VITE_BASE_PATH}
 RUN npm run build
 
 # Production stage

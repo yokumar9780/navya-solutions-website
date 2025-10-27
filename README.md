@@ -83,8 +83,12 @@ This project demonstrates enterprise-grade web development practices and can ser
 
 3. **Set up environment variables** (optional)
    ```bash
-   # Create .env.local file for Gemini API key (if using AI features)
-   echo "GEMINI_API_KEY=your_api_key_here" > .env.local
+   # Copy the example environment file
+   cp .env.example .env
+   
+   # Edit .env to customize VITE_BASE_PATH if needed
+   # Default is '/navya-solutions-website/' for GitHub Pages
+   # Use '/' for Docker or local development without subpath
    ```
 
 4. **Start development server**

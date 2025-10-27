@@ -2,10 +2,13 @@ node_modules
 npm-debug.log
 dist
 .git
+.github
 .gitignore
 README.md
+*.md
 .env
 .env.local
 .vscode
 .idea
-*.md
+.DS_Store
+Thumbs.db
